@@ -6,17 +6,18 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region us-east-1 --no-include-email)
+      - docker login -u AWS -p password https://aws_account_id.dkr.ecr.region.amazonaws.com
       
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - cd docker-distribution
-      - docker build -t 895164885144.dkr.ecr.us-east-1.amazonaws.com/covms-gateway/loginservice:latest .
+      - docker build -t 895164885144.dkr.ecr.us-east-1.amazonaws.com/team3ecrrepo/loginservice:latest .
       
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 895164885144.dkr.ecr.us-east-1.amazonaws.com/covms-gateway/loginservice:latest
+      - docker push 895164885144.dkr.ecr.us-east-1.amazonaws.com/team3ecrrepo/loginservice:latest
       

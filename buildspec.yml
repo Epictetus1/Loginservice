@@ -12,11 +12,11 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - cd docker-distribution
-      - docker build -t 895164885144.dkr.ecr.us-east-1.amazonaws.com/team3ecrrepo/loginservice:latest .
+      - docker build -t 895164885144.dkr.ecr.us-east-1.amazonaws.com/covms-gateway/loginservice:latest .
       
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 895164885144.dkr.ecr.us-east-1.amazonaws.com/team3ecrrepo/loginservice:latest
+      - docker push 895164885144.dkr.ecr.us-east-1.amazonaws.com/covms-gateway/loginservice:latest
       
